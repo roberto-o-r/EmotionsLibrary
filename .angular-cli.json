@@ -1,0 +1,73 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "emotions-library"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico",
+        "theme"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "theme/css/themes/horizontal-menu/materialize.css",
+        "theme/css/themes/horizontal-menu/style.css",
+        "theme/css/layouts/style-horizontal.css",
+        "theme/css/custom/custom.css",
+        "theme/vendors/perfect-scrollbar/perfect-scrollbar.css",
+        "theme/vendors/flag-icon/css/flag-icon.min.css",
+        "styles.css"
+      ],
+      "scripts": [
+        "theme/vendors/jquery-3.2.1.min.js",
+        "theme/js/materialize.min.js",
+        "theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js",
+        "theme/js/plugins.js",
+        "theme/js/custom-script.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}
