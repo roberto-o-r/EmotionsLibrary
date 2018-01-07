@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {
   MatAutocompleteModule,
@@ -38,8 +39,10 @@ import {
 } from '@angular/material';
 
 
+import { AppComponent } from './app/app.component';
 import { HomeComponent } from './home/home.component';
 import { SubscribeDialogComponent } from './subscribe-dialog/subscribe-dialog.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   exports: [
@@ -79,22 +82,32 @@ import { SubscribeDialogComponent } from './subscribe-dialog/subscribe-dialog.co
 })
 export class MaterialModule {}
 
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent }
+];
 
 @NgModule({
   declarations: [
+    AppComponent,
     HomeComponent,
+    LoginComponent,
     SubscribeDialogComponent,
   ],
   entryComponents: [
-    SubscribeDialogComponent
+    SubscribeDialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
     FormsModule,
     MaterialModule
   ],
   providers: [],
-  bootstrap: [HomeComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

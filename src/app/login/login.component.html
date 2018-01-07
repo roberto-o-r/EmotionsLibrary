@@ -1,0 +1,129 @@
+<div class="center">
+  <div id="login-page" class="row">
+    <div class="col s12">
+      <!-- Login . -->
+      <form class="login-form" *ngIf="type === 1">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <h4>Login</h4>
+            <p class="center">Welcome Back!</p>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix pt-5">person_outline</i>
+            <input id="username" type="text">
+            <label for="username" class="center-align">Username</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix pt-5">lock_outline</i>
+            <input id="password" type="password">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m12 l12 ml-2 mt-3">
+            <input type="checkbox" id="remember-me" />
+            <label for="remember-me">Remember me</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <a class="btn waves-effect waves-light col s12" [routerLink]="">Login</a>
+          </div>
+          <div class="input-field col s12">
+            <a class="btn waves-effect waves-light col s12 facebook" [routerLink]="">Facebook</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            <p class="margin medium-small">
+              <a [routerLink]="" (click)="type = 2">Register Now!</a>
+            </p>
+          </div>
+          <div class="input-field col s6 m6 l6">
+            <p class="margin right-align medium-small">
+              <a [routerLink]="" (click)="type = 3">Forgot password ?</a>
+            </p>
+          </div>
+        </div>
+      </form>
+      <!-- Register. -->
+      <form class="login-form" *ngIf="type === 2">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <h4>Register</h4>
+            <p class="center">Join to our community now!</p>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix pt-5">person_outline</i>
+            <input id="username" type="text">
+            <label for="username" class="center-align">Username</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix pt-5">email</i>
+            <input id="email" type="email">
+            <label for="email" class="center-align">Email</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix pt-5">lock_outline</i>
+            <input id="password" type="password">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix pt-5">lock_outline</i>
+            <input id="password-again" type="password">
+            <label for="password-again">Password again</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <a class="btn waves-effect waves-light col s12">Register Now</a>
+          </div>
+          <div class="input-field col s12">
+            <p class="margin center medium-small sign-up">Already have an account?
+              <a [routerLink]="" (click)="type = 1">Login</a>
+            </p>
+          </div>
+        </div>
+      </form>
+      <!-- Forgot password. -->
+      <form class="login-form" *ngIf="type === 3">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <h4>Forgot Password</h4>
+            <p class="center">Write your email and we'll send you the instructions</p>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix pt-5">email</i>
+            <input id="email" type="text">
+            <label for="email" class="center-align">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <a class="btn waves-effect waves-light col s12" [routerLink]="">Reset Password</a>
+          </div>
+          <div class="input-field col s12">
+            <p class="margin sign-up">
+              <a [routerLink]="" (click)="type = 1">Login</a>
+              <a class="right" [routerLink]="" (click)="type = 2">Register</a>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
