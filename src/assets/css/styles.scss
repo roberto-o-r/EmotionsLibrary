@@ -1,0 +1,35 @@
+/* Load angular material and material icons. */
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Home */
+
+header .brand-logo img {
+    height: 40px;
+}
+
+header .brand-logo {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#home .container {
+    width: 70%;
+}
+
+#home .carousel {
+    max-height: 700px;
+}
+
+#horizontal-nav ul li span {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+/* Generic styles. */
+.justify {
+    text-align: justify;
+}
+
+.center {
+    text-align: center;
+}

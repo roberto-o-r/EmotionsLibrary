@@ -26,14 +26,16 @@
         "theme/css/custom/custom.css",
         "theme/vendors/perfect-scrollbar/perfect-scrollbar.css",
         "theme/vendors/flag-icon/css/flag-icon.min.css",
-        "styles.css"
+        "assets/css/styles.scss",
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [
         "theme/vendors/jquery-3.2.1.min.js",
         "theme/js/materialize.min.js",
         "theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js",
         "theme/js/plugins.js",
-        "theme/js/custom-script.js"
+        "theme/js/custom-script.js",
+        "assets/js/global.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
