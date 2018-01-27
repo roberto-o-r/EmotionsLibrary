@@ -89,8 +89,8 @@
     <nav id="horizontal-nav" class="white hide-on-med-and-down">
       <div class="nav-wrapper">
         <ul id="ul-horizontal-nav" class="left hide-on-med-and-down">
-          <li class="active">
-            <a class="dropdown-menu" href="#!">
+          <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a class="dropdown-menu" routerLink="/">
               <i class="material-icons">home</i>
               <span>Home</span>
             </a>
@@ -102,8 +102,8 @@
                 <span>Home</span>
               </a>
             </li>-->
-          <li>
-            <a class="dropdown-menu" href="/theme../documentation">
+          <li routerLinkActive="active">
+            <a class="dropdown-menu" routerLink="/library">
               <i class="material-icons">import_contacts</i>
               <span>Library</span>
             </a>

@@ -43,6 +43,7 @@ import { AppComponent } from './app/app.component';
 import { HomeComponent } from './home/home.component';
 import { SubscribeDialogComponent } from './subscribe-dialog/subscribe-dialog.component';
 import { LoginComponent } from './login/login.component';
+import { LibraryComponent } from './library/library.component';
 
 @NgModule({
   exports: [
@@ -83,7 +84,8 @@ import { LoginComponent } from './login/login.component';
 export class MaterialModule {}
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: 'library', component: LibraryComponent }
 ];
 
 @NgModule({
@@ -92,6 +94,7 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     SubscribeDialogComponent,
+    LibraryComponent
   ],
   entryComponents: [
     SubscribeDialogComponent,
