@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTable, MatTableDataSource } from '@angular/material';
+import { Feeling } from '../models/feeling.model';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-admin-feelings',
@@ -10,10 +13,28 @@ export class AdminFeelingsComponent implements OnInit {
 
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
+  action = 0; // 1 - New, 2 - Edit.
+  feeling: Feeling = {name: "", description: ""};
+  feelingsCollectionRef: AngularFirestoreCollection<Feeling>;
 
-  constructor() { }
+  constructor(private afStore: AngularFirestore) { 
+    this.feelingsCollectionRef = this.afStore.collection<Feeling>('feelings');
+  }
 
   ngOnInit() {
+  }
+
+  newFeeling() {
+    this.action = 1;
+  }
+
+  saveFeeling() {
+    if (this.feeling.name.trim().length && this.feeling.description.trim().length) {
+      this.feelingsCollectionRef.add(this.feeling);
+      this.feeling = new Feeling();
+    } else {
+      swal("Please complete the feeling information");
+    }
   }
 
 }
