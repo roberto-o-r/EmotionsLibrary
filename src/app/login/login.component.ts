@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
     }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
-      var errorMessage = error.message;
+      var errorMessage = error.message
+      console.log(errorCode + " " + errorMessage);
       swal("Ooops!", "An error has ocurred while trying authenticate you with Facebook. Please try again.", "info");
     });
   }

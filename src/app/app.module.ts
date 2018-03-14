@@ -50,6 +50,7 @@ import { SubscribeDialogComponent } from './subscribe-dialog/subscribe-dialog.co
 import { LoginComponent } from './login/login.component';
 import { LibraryComponent } from './library/library.component';
 import { AdminFeelingsComponent } from './admin-feelings/admin-feelings.component';
+import { FeelingService } from './shared/services/feeling.service';
 
 @NgModule({
   exports: [
@@ -122,7 +123,7 @@ const appRoutes: Routes = [
     FormsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [FeelingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
