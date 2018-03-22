@@ -33,20 +33,19 @@
               </i>
             </a>
           </li>
-          <li>
+          <li [hidden]="sessionService.isLoggedIn()">
             <a class="waves-effect waves-block waves-light"  [routerLink]="" (click)="openLogin();">
               <i class="material-icons">account_circle</i>
             </a>
           </li>
-          <!-- Once user is logged in -->
-          <!--<li>
+          <li [hidden]="!sessionService.isLoggedIn()">
             <a href="javascript:void(0);" class="waves-effect waves-block waves-light profile-button" data-activates="profile-dropdown">
               <span class="avatar-status avatar-online">
                 <img src="/theme/images/avatar/avatar-7.png" alt="avatar">
                 <i></i>
               </span>
             </a>
-          </li>-->
+          </li>
 
         </ul>
         <!-- notifications-dropdown -->
@@ -71,16 +70,8 @@
         <!-- profile-dropdown -->
         <ul id="profile-dropdown" class="dropdown-content">
           <li>
-            <a href="#" class="grey-text text-darken-1">
-              <i class="material-icons">face</i> Profile</a>
-          </li>
-          <li>
-            <a href="#" class="grey-text text-darken-1">
-              <i class="material-icons">settings</i> Settings</a>
-          </li>
-          <li>
-            <a href="#" class="grey-text text-darken-1">
-              <i class="material-icons">live_help</i> Help</a>
+            <a class="grey-text text-darken-1" [routerLink]="" (click)="logOut();">
+              <i class="material-icons">exit_to_app</i> Log Out</a>
           </li>
         </ul>
       </div>

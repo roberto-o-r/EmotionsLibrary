@@ -51,6 +51,7 @@ import { LoginComponent } from './login/login.component';
 import { LibraryComponent } from './library/library.component';
 import { AdminFeelingsComponent } from './admin-feelings/admin-feelings.component';
 import { FeelingService } from './shared/services/feeling.service';
+import { SessionService } from './shared/services/session.service';
 
 @NgModule({
   exports: [
@@ -123,7 +124,7 @@ const appRoutes: Routes = [
     FormsModule,
     MaterialModule
   ],
-  providers: [FeelingService],
+  providers: [FeelingService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

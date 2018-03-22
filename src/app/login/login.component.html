@@ -45,7 +45,7 @@
         </div>
       </form>
       <!-- Register. -->
-      <form class="login-form" *ngIf="type === 2">
+      <form class="register-form" *ngIf="type === 2" (ngSubmit)="emailRegister();" #registerForm="ngForm">
         <div class="row">
           <div class="input-field col s12 center">
             <h4>Register</h4>
@@ -54,35 +54,37 @@
         </div>
         <div class="row margin">
           <div class="input-field col s12">
-            <i class="material-icons prefix pt-5">person_outline</i>
-            <input id="username" type="text">
-            <label for="username" class="center-align">Username</label>
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12">
             <i class="material-icons prefix pt-5">email</i>
-            <input id="email" type="email">
+            <input name="email" id="email" type="email" [(ngModel)]="user.email" #email="ngModel" required>
             <label for="email" class="center-align">Email</label>
+            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+              <div *ngIf="email.errors.required" class="error right-align">Required</div>
+            </div>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix pt-5">lock_outline</i>
-            <input id="password" type="password">
+            <input name="password" id="password" type="password" [(ngModel)]="user.password" #password="ngModel" required>
             <label for="password">Password</label>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)">
+              <div *ngIf="password.errors.required" class="error right-align">Required</div>
+            </div>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="material-icons prefix pt-5">lock_outline</i>
-            <input id="password-again" type="password">
-            <label for="password-again">Password again</label>
+            <input name="passwordAgain" id="passwordAgain" type="password" [(ngModel)]="user.passwordAgain" #passwordAgain="ngModel" required>
+            <label for="passwordAgain">Password again</label>
+            <div *ngIf="passwordAgain.dirty || passwordAgain.touched">
+              <div *ngIf="user.passwordAgain != user.password" class="error right-align">Passwords don't match</div>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a class="btn waves-effect waves-light col s12">Register Now</a>
+            <button class="btn waves-effect waves-light col s12" type="submit" [disabled]="registerForm.invalid || user.passwordAgain != user.password">Register Now</button>
           </div>
           <div class="input-field col s12">
             <p class="margin center medium-small sign-up">Already have an account?

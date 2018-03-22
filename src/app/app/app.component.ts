@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { SubscribeDialogComponent } from '../subscribe-dialog/subscribe-dialog.component';
 import { LoginComponent } from '../login/login.component';
+import { SessionService } from '../shared/services/session.service';
 
 @Component({
   selector: 'app-app',
@@ -12,11 +13,11 @@ export class AppComponent implements OnInit {
 
   email: string;
 
-  constructor(private dialog: MatDialog) { 
+  constructor(private sessionService: SessionService, private dialog: MatDialog) { 
   }
 
   ngOnInit() {
-    setTimeout(() => { this.openSubscribe(); }, 3000);
+    //setTimeout(() => { this.openSubscribe(); }, 3000);
   }
 
   openSubscribe() {
@@ -33,6 +34,10 @@ export class AppComponent implements OnInit {
     let dialogRef = this.dialog.open(LoginComponent, {
       width: '400px'
     });
+  }
+
+  logOut(){
+    this.sessionService.logOut();
   }
 
 }
