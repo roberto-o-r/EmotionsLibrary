@@ -1,0 +1,32 @@
+<!-- Feeling Form-->
+<div class="modal-content">
+  <h4 class="header2" *ngIf="type === 1">New Feeling</h4>
+  <h4 class="header2" *ngIf="type === 2">Edit Feeling</h4>
+  <form id="feeling-form" class="col s12" (ngSubmit)="saveFeeling();" #feelingForm="ngForm">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="name" type="text" name="name" [(ngModel)]="feeling.name" #name="ngModel" required>
+        <label for="first_name" [ngClass]="{'active': type === 2}">Name</label>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)">
+          <div *ngIf="name.errors.required" class="error right-align">Required</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="description" class="materialize-textarea" name="description" [(ngModel)]="feeling.description" #description="ngModel"
+          required></textarea>
+        <label for="description" [ngClass]="{'active': type === 2}">Description</label>
+        <div *ngIf="description.invalid && (description.dirty || description.touched)">
+          <div *ngIf="description.errors.required" class="error right-align">Required</div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="waves-effect waves-light btn cyan right" type="submit" form="feeling-form" [disabled]="feelingForm.invalid">Save
+    <i class="material-icons right">send</i>
+  </button>
+  <a class="waves-effect waves-light btn-flat right" [routerLink]="" (click)="cancel();">Cancel</a>
+</div>

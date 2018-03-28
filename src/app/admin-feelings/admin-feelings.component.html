@@ -5,40 +5,10 @@
 
       <div class="section">
         <h4>Feelings</h4>
-        <div class="caption">In this secton you'll be able to manage the feelings of the library, you can add, edit, delete and approve submited feelings.</div>       
-        <a class="waves-effect waves-light btn" [routerLink]="" (click)="newFeeling();">New</a>        
-      </div>
-
-      <!-- Feeling Form-->
-      <div id="basic-form" class="section" *ngIf="action === 1">
-        <div class="row">
-          <div class="col s12 m12 l12">
-            <div class="card-panel">
-              <h4 class="header2">New Feeling</h4>
-              <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="name" type="text" name="name" [(ngModel)]="feeling.name">
-                      <label for="first_name">Name</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <textarea id="description" class="materialize-textarea" name="description" [(ngModel)]="feeling.description"></textarea>
-                      <label for="description">Description</label>
-                    </div>
-                    <div class="row">
-                      <div class="input-field col s12">
-                        <a class="waves-effect waves-light btn cyan right" [routerLink]="" (click)="saveFeeling();"><i class="material-icons right">send</i> Save</a>                        
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+        <div class="caption">In this secton you'll be able to manage the feelings of the library, you can add, edit, delete and approve submited
+          feelings.
         </div>
+        <a class="waves-effect waves-light btn" [routerLink]="" (click)="newFeeling();">New</a>
       </div>
 
       <!-- Table. -->
@@ -46,6 +16,11 @@
 
         <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">          
+          <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+        </ng-container>
 
         <!-- Position Column -->
         <ng-container matColumnDef="name">
@@ -57,7 +32,20 @@
         <ng-container matColumnDef="description">
           <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
-        </ng-container>        
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <a class="btn-floating waves-effect waves-light" [routerLink]="" (click)="editFeeling(element);">
+              <i class="material-icons">mode_edit</i>
+            </a>
+            <a class="btn-floating waves-effect waves-light red" [routerLink]="" (click)="deleteFeeling(element);">
+              <i class="material-icons">clear</i>
+            </a>
+          </mat-cell>
+        </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

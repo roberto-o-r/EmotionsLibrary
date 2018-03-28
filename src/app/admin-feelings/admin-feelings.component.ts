@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTable, MatTableDataSource } from '@angular/material';
+import { MatTable, MatTableDataSource, MatDialog } from '@angular/material';
 import { Feeling } from '../models/feeling.model';
 import swal from 'sweetalert2'
 import { DataSource } from '@angular/cdk/collections';
 import { FeelingService } from '../shared/services/feeling.service';
+import { AdminFeelingsDialogComponent } from '../admin-feelings-dialog/admin-feelings-dialog.component';
 
 @Component({
   selector: 'app-admin-feelings',
@@ -12,26 +13,28 @@ import { FeelingService } from '../shared/services/feeling.service';
 })
 export class AdminFeelingsComponent implements OnInit {
 
-  displayedColumns = ['name', 'description'];
-  dataSource = new FeelingDataSource(this.feelingService);
-  action = 0; // 1 - New, 2 - Edit.
-  feeling: Feeling = {name: "", description: ""};
+  displayedColumns = ['name', 'description', 'actions'];
+  dataSource = new FeelingDataSource(this.feelingService);    
 
-  constructor(private feelingService: FeelingService) {}
+  constructor(private feelingService: FeelingService, private dialog: MatDialog) {}
 
   ngOnInit() {}
 
   newFeeling() {
-    this.action = 1;
+    let dialogRef = this.dialog.open(AdminFeelingsDialogComponent, {
+      width: '800px'      
+    });
   }
 
-  saveFeeling() {
-    if (this.feeling.name.trim().length && this.feeling.description.trim().length) {
-      this.feelingService.addFeeling(this.feeling);
-      this.feeling = new Feeling();
-    } else {
-      swal("Please complete the feeling information");
-    }
+  editFeeling(feeling) {
+    let dialogRef = this.dialog.open(AdminFeelingsDialogComponent, {
+      width: '800px',
+      data: feeling
+    });
+  }
+
+  deleteFeeling(feeling) {
+    this.feelingService.deleteFeeling(feeling);
   }
 
 }

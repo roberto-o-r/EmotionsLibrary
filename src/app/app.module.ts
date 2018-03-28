@@ -52,6 +52,7 @@ import { LibraryComponent } from './library/library.component';
 import { AdminFeelingsComponent } from './admin-feelings/admin-feelings.component';
 import { FeelingService } from './shared/services/feeling.service';
 import { SessionService } from './shared/services/session.service';
+import { AdminFeelingsDialogComponent } from './admin-feelings-dialog/admin-feelings-dialog.component';
 
 @NgModule({
   exports: [
@@ -87,7 +88,7 @@ import { SessionService } from './shared/services/session.service';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-  ]
+  ]  
 })
 export class MaterialModule {}
 
@@ -104,11 +105,13 @@ const appRoutes: Routes = [
     LoginComponent,
     SubscribeDialogComponent,
     LibraryComponent,
-    AdminFeelingsComponent
+    AdminFeelingsComponent,
+    AdminFeelingsDialogComponent
   ],
   entryComponents: [
     SubscribeDialogComponent,
     LoginComponent,
+    AdminFeelingsDialogComponent
   ],
   imports: [
     BrowserModule,
