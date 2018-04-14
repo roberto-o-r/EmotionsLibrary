@@ -14,15 +14,15 @@ import { AdminFeelingsDialogComponent } from '../admin-feelings-dialog/admin-fee
 export class AdminFeelingsComponent implements OnInit {
 
   displayedColumns = ['name', 'description', 'actions'];
-  dataSource = new FeelingDataSource(this.feelingService);    
+  dataSource = new FeelingDataSource(this.feelingService);
 
-  constructor(private feelingService: FeelingService, private dialog: MatDialog) {}
+  constructor(private feelingService: FeelingService, private dialog: MatDialog) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   newFeeling() {
     let dialogRef = this.dialog.open(AdminFeelingsDialogComponent, {
-      width: '800px'      
+      width: '800px'
     });
   }
 
@@ -33,23 +33,33 @@ export class AdminFeelingsComponent implements OnInit {
     });
   }
 
-  deleteFeeling(feeling) {
-    this.feelingService.deleteFeeling(feeling);
+  deleteFeeling(feeling) {    
+    swal({
+      title: "Confirm",
+      text: "Are you sure you want to delete this feeling?",
+      type: "warning",
+      showCancelButton: true,
+      reverseButtons: true     
+    }).then((result) => {
+      if (result.value) {
+        this.feelingService.deleteFeeling(feeling);
+      }
+    });
   }
 
 }
 
 export class FeelingDataSource extends DataSource<any> {
- 
+
   constructor(private feelingService: FeelingService) {
-  super()
+    super()
   }
- 
+
   connect() {
     return this.feelingService.getFeelings();
   }
- 
+
   disconnect() {
- 
+
   }
 }

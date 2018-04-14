@@ -1,8 +1,9 @@
-<!-- Feeling Form-->
+<!-- Feeling Form. -->
 <div class="modal-content">
   <h4 class="header2" *ngIf="type === 1">New Feeling</h4>
   <h4 class="header2" *ngIf="type === 2">Edit Feeling</h4>
   <form id="feeling-form" class="col s12" (ngSubmit)="saveFeeling();" #feelingForm="ngForm">
+    <!-- Name. -->
     <div class="row">
       <div class="input-field col s12">
         <input id="name" type="text" name="name" [(ngModel)]="feeling.name" #name="ngModel" required>
@@ -12,6 +13,7 @@
         </div>
       </div>
     </div>
+    <!-- Description. -->
     <div class="row">
       <div class="input-field col s12">
         <textarea id="description" class="materialize-textarea" name="description" [(ngModel)]="feeling.description" #description="ngModel"
@@ -20,6 +22,22 @@
         <div *ngIf="description.invalid && (description.dirty || description.touched)">
           <div *ngIf="description.errors.required" class="error right-align">Required</div>
         </div>
+      </div>
+    </div>
+    <!-- Related Feelings. -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="related" type="text" name="related" (keyup)="filterFeelings($event)" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayName" (optionSelected)="relatedSelected($event)">
+          <mat-option *ngFor="let feeling of filteredFeelings" [value]="feeling">
+            {{ feeling.name }}
+          </mat-option>
+        </mat-autocomplete>
+        <label for="related" [ngClass]="{'active': type === 2}">Related Feelings</label>
+      </div>      
+      <div class="chip" *ngFor="let feeling of feeling.relatedFeelings; let i=index">
+        {{feeling.name}}
+        <i class="close material-icons" (click)="removeRelated(i);"> close</i>
       </div>
     </div>
   </form>

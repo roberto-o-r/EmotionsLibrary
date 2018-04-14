@@ -32,7 +32,7 @@
       ],
       "scripts": [
         "theme/vendors/jquery-3.2.1.min.js",
-        "theme/js/materialize.min.js",
+        "theme/js/materialize.js",
         "theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js",
         "theme/js/plugins.js",
         "theme/js/custom-script.js",

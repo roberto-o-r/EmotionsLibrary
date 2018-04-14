@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   email: string;
 
-  constructor(private sessionService: SessionService, private dialog: MatDialog) { 
+  constructor(public sessionService: SessionService, private dialog: MatDialog) { 
   }
 
   ngOnInit() {

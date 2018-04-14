@@ -5467,13 +5467,13 @@ if (jQuery) {
 
   $(document).ready(function () {
     // Handle removal of static chips.
-    $(document).on('click', '.chip .close', function (e) {
+    /*$(document).on('click', '.chip .close', function (e) {
       var $chips = $(this).closest('.chips');
       if ($chips.attr('data-initialized')) {
         return;
       }
       $(this).closest('.chip').remove();
-    });
+    });*/
   });
 
   $.fn.material_chip = function (options) {
