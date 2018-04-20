@@ -27,9 +27,9 @@
     <!-- Related Feelings. -->
     <div class="row">
       <div class="input-field col s12">
-        <input id="related" type="text" name="related" (keyup)="filterFeelings($event)" [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayName" (optionSelected)="relatedSelected($event)">
-          <mat-option *ngFor="let feeling of filteredFeelings" [value]="feeling">
+        <input id="related" type="text" name="related" (keyup)="filterRelatedFeelings($event)" [matAutocomplete]="autoRelated">
+        <mat-autocomplete #autoRelated="matAutocomplete" [displayWith]="displayName" (optionSelected)="relatedSelected($event)">
+          <mat-option *ngFor="let feeling of filteredFeelingsRelated" [value]="feeling">
             {{ feeling.name }}
           </mat-option>
         </mat-autocomplete>
@@ -38,6 +38,22 @@
       <div class="chip" *ngFor="let feeling of feeling.relatedFeelings; let i=index">
         {{feeling.name}}
         <i class="close material-icons" (click)="removeRelated(i);"> close</i>
+      </div>
+    </div>
+    <!-- Opposite Feelings. -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="opposite" type="text" name="opposite" (keyup)="filterOppositeFeelings($event)" [matAutocomplete]="autoOpposite">
+        <mat-autocomplete #autoOpposite="matAutocomplete" [displayWith]="displayName" (optionSelected)="oppositeSelected($event)">
+          <mat-option *ngFor="let feeling of filteredFeelingsOpposite" [value]="feeling">
+            {{ feeling.name }}
+          </mat-option>
+        </mat-autocomplete>
+        <label for="opposite" [ngClass]="{'active': type === 2}">Opposite Feelings</label>
+      </div>      
+      <div class="chip" *ngFor="let feeling of feeling.oppositeFeelings; let i=index">
+        {{feeling.name}}
+        <i class="close material-icons" (click)="removeOpposite(i);"> close</i>
       </div>
     </div>
   </form>

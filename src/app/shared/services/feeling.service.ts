@@ -7,12 +7,22 @@ export class FeelingService {
 
   constructor(private afs: AngularFirestore) { }
 
-  addFeeling(feeling) {
-    this.afs.collection('feelings').add({name: feeling.name, description: feeling.description, related: feeling.relatedFeelings.map(r => r.id) });      
+  addFeeling(feeling: Feeling) {
+    this.afs.collection('feelings').add({
+      name: feeling.name, 
+      description: feeling.description, 
+      related: feeling.relatedFeelings.map(r => r.id),
+      opposite: feeling.oppositeFeelings.map(o => o.id)
+    });      
   }
 
-  updateFeeling(feeling) {
-    this.afs.collection('feelings').doc(feeling.id).update({name: feeling.name, description: feeling.description, related: feeling.relatedFeelings.map(r => r.id) });      
+  updateFeeling(feeling: Feeling) {
+    this.afs.collection('feelings').doc(feeling.id).update({
+      name: feeling.name,
+      description: feeling.description,
+      related: feeling.relatedFeelings.map(r => r.id),
+      opposite: feeling.oppositeFeelings.map(o => o.id)
+    });      
   }
 
   deleteFeeling(feeling) {
