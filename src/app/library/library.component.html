@@ -8,14 +8,13 @@
       irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
-    <div class="divider"></div>
-    <!--Card Reveal-->
-    <div class="divider"></div>
+    <div class="divider"></div>    
     <div id="card-reveal" class="section">
       <div class="row">
         <div class="col s12 m12 l12">
           <div class="row">
-            <div class="col s12 m4 l4">
+            <!-- Cards loop. -->
+            <div class="col s12 m4 l4" *ngFor="let feeling of feelings;">
               <div class="card sticky-action">
                 <div class="card-image waves-effect waves-block waves-light">
                   <img class="activator" src="/assets/images/gallary/24.png">
@@ -24,11 +23,11 @@
                   </a>
                 </div>
                 <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">Calm
+                  <span class="card-title activator grey-text text-darken-4">{{ feeling.name }}
                     <!--<i class="material-icons right">more_vert</i>-->
                   </span>
                   <p>
-                    Here it goes a brief description of the feeling. Here it goes a brief description of the feeling.
+                    {{ feeling.description }}
                   </p>
                 </div>
                 <div class="card-action">
@@ -36,169 +35,17 @@
                   <a href="#">Conversation</a>
                 </div>
                 <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Calm
+                  <span class="card-title grey-text text-darken-4">{{ feeling.name }}
                     <i class="material-icons right">close</i>
                   </span>
-                  <p>Here it goes more details of the feeling as well as opposite and related feelings.</p>
-                  <strong>Opposite Feelings:</strong>
-                  <p>
-                    <a href="#">Agitated</a>,
-                    <a href="#">Alarmed</a>
-                  </p>
+                  <p>{{ feeling.description }}</p>                  
                   <strong>Related Feelings:</strong>
                   <p>
-                    <a href="#">Centered</a>,
-                    <a href="#">Clear</a>
+                    <a [routerLink]="" *ngFor="let related of feeling.relatedFeelings; let isLast = last;">{{ related.name }}<span *ngIf="!isLast">, </span></a>                   
                   </p>
-                </div>
-              </div>
-            </div>
-            <div class="col s12 m4 l4">
-              <div class="card sticky-action">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="/assets/images/gallary/5.png">
-                  <a class="btn-floating halfway-fab waves-effect waves-light red">
-                    <i class="material-icons">favorite_border</i>
-                  </a>
-                </div>
-                <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">Authentic
-                    <!--<i class="material-icons right">more_vert</i>-->
-                  </span>
-                  <p>
-                    Here it goes a brief description of the feeling. Here it goes a brief description of the feeling.
-                  </p>
-                </div>
-                <div class="card-action">
-                  <a href="#">Workshop</a>
-                  <a href="#">Conversation</a>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Authentic
-                    <i class="material-icons right">close</i>
-                  </span>
-                  <p>Here it goes more details of the feeling as well as opposite and related feelings.</p>
                   <strong>Opposite Feelings:</strong>
                   <p>
-                    <a href="#">Charlatan</a>,
-                    <a href="#">Criminal (Like a)</a>
-                  </p>
-                  <strong>Related Feelings:</strong>
-                  <p>
-                    <a href="#">Balanced</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col s12 m4 l4">
-              <div class="card sticky-action">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="/assets/images/gallary/18.png">
-                  <a class="btn-floating halfway-fab waves-effect waves-light red">
-                    <i class="material-icons">favorite_border</i>
-                  </a>
-                </div>
-                <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">Confident
-                    <!--<i class="material-icons right">more_vert</i>-->
-                  </span>
-                  <p>
-                    Here it goes a brief description of the feeling. Here it goes a brief description of the feeling.
-                  </p>
-                </div>
-                <div class="card-action">
-                  <a href="#">Workshop</a>
-                  <a href="#">Conversation</a>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Confident
-                    <i class="material-icons right">close</i>
-                  </span>
-                  <p>Here it goes more details of the feeling as well as opposite and related feelings.</p>
-                  <strong>Opposite Feelings:</strong>
-                  <p>
-                    <a href="#">Afraid</a>,
-                    <a href="#">Anxious</a>
-                  </p>
-                  <strong>Related Feelings:</strong>
-                  <p>
-                    <a href="#">Congruent</a>,
-                    <a href="#">Connected</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col s12 m4 l4">
-              <div class="card sticky-action">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="/assets/images/gallary/22.png">
-                  <a class="btn-floating halfway-fab waves-effect waves-light red">
-                    <i class="material-icons">favorite_border</i>
-                  </a>
-                </div>
-                <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">Disciplined
-                    <!--<i class="material-icons right">more_vert</i>-->
-                  </span>
-                  <p>
-                    Here it goes a brief description of the feeling. Here it goes a brief description of the feeling.
-                  </p>
-                </div>
-                <div class="card-action">
-                  <a href="#">Workshop</a>
-                  <a href="#">Conversation</a>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Disciplined
-                    <i class="material-icons right">close</i>
-                  </span>
-                  <p>Here it goes more details of the feeling as well as opposite and related feelings.</p>
-                  <strong>Opposite Feelings:</strong>
-                  <p>
-                    <a href="#">Lustful</a>,
-                    <a href="#">Spoiled</a>
-                  </p>
-                  <strong>Related Feelings:</strong>
-                  <p>
-                    <a href="#">Eager</a>,
-                    <a href="#">Effective</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col s12 m4 l4">
-              <div class="card sticky-action">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="/assets/images/gallary/13.png">
-                  <a class="btn-floating halfway-fab waves-effect waves-light red">
-                    <i class="material-icons">favorite_border</i>
-                  </a>
-                </div>
-                <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">Focused
-                    <!--<i class="material-icons right">more_vert</i>-->
-                  </span>
-                  <p>
-                    Here it goes a brief description of the feeling. Here it goes a brief description of the feeling.
-                  </p>
-                </div>
-                <div class="card-action">
-                  <a href="#">Workshop</a>
-                  <a href="#">Conversation</a>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Focused
-                    <i class="material-icons right">close</i>
-                  </span>
-                  <p>Here it goes more details of the feeling as well as opposite and related feelings.</p>
-                  <strong>Opposite Feelings:</strong>
-                  <p>
-                    <a href="#">Foolish</a>,
-                    <a href="#">Fragmented</a>
-                  </p>
-                  <strong>Related Feelings:</strong>
-                  <p>
-                    <a href="#">Forward</a>
+                    <a [routerLink]="" *ngFor="let opposite of feeling.oppositeFeelings; let isLast = last;">{{ opposite.name }}<span *ngIf="!isLast">, </span></a>                   
                   </p>
                 </div>
               </div>
