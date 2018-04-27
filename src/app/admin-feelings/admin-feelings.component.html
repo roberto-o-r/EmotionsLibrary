@@ -22,16 +22,22 @@
           <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
         </ng-container>
 
-        <!-- Position Column -->
+        <!-- Name Column -->
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>        
+
+        <!-- Beliefs -->
+        <ng-container matColumnDef="beliefs">
+          <mat-header-cell *matHeaderCellDef> Supporting Beliefs </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.beliefs}} </mat-cell>
         </ng-container>
 
-        <!-- Name Column -->
+        <!-- Desc Column -->
         <ng-container matColumnDef="description">
           <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+          <mat-cell *matCellDef="let element"> {{ (element.description.length > 125)? (element.description | slice:0:125)+'...':(element.description) }} </mat-cell>
         </ng-container>
 
         <!-- Actions Column -->

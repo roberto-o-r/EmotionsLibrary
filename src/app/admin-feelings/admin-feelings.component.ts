@@ -13,7 +13,7 @@ import { AdminFeelingsDialogComponent } from '../admin-feelings-dialog/admin-fee
 })
 export class AdminFeelingsComponent implements OnInit {
 
-  displayedColumns = ['name', 'description', 'actions'];
+  displayedColumns = ['name', 'beliefs', 'description', 'actions'];
   dataSource = new FeelingDataSource(this.feelingService);
 
   constructor(private feelingService: FeelingService, private dialog: MatDialog) { }

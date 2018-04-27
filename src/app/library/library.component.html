@@ -27,7 +27,7 @@
                     <!--<i class="material-icons right">more_vert</i>-->
                   </span>
                   <p>
-                    {{ feeling.description }}
+                    {{ (feeling.description.length > 125)? (feeling.description | slice:0:125)+'...':(feeling.description) }}
                   </p>
                 </div>
                 <div class="card-action">
@@ -38,7 +38,7 @@
                   <span class="card-title grey-text text-darken-4">{{ feeling.name }}
                     <i class="material-icons right">close</i>
                   </span>
-                  <p>{{ feeling.description }}</p>                  
+                  <p class="pre">{{ feeling.description }}</p>                  
                   <strong>Related Feelings:</strong>
                   <p>
                     <a [routerLink]="" *ngFor="let related of feeling.relatedFeelings; let isLast = last;">{{ related.name }}<span *ngIf="!isLast">, </span></a>                   

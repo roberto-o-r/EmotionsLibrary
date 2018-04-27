@@ -56,6 +56,16 @@
         <i class="close material-icons" (click)="removeOpposite(i);"> close</i>
       </div>
     </div>
+    <!-- Supporting Beliefs. -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="beliefs" type="text" name="beliefs" [(ngModel)]="feeling.beliefs" #beliefs="ngModel" required>
+        <label for="beliefs" [ngClass]="{'active': type === 2}">Supporting Beliefs</label>
+        <div *ngIf="beliefs.invalid && (beliefs.dirty || beliefs.touched)">
+          <div *ngIf="beliefs.errors.required" class="error right-align">Required</div>
+        </div>
+      </div>
+    </div>
   </form>
 </div>
 <div class="modal-footer">

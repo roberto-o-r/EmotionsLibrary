@@ -16,7 +16,7 @@ import swal from 'sweetalert2'
 export class AdminFeelingsDialogComponent implements OnInit {
 
   type = 1; // 1 New, 2 Edit.  
-  feeling: Feeling = { id: "", name: "", description: "", related: [], opposite: [], relatedFeelings: [], oppositeFeelings: [] };
+  feeling: Feeling = { id: "", name: "", description: "", related: [], opposite: [], relatedFeelings: [], oppositeFeelings: [], beliefs: "" };
   feelings;
   filteredFeelingsRelated: Feeling[];
   filteredFeelingsOpposite: Feeling[];
@@ -32,6 +32,7 @@ export class AdminFeelingsDialogComponent implements OnInit {
       this.feeling.description = data.description;
       this.feeling.related = data.related;
       this.feeling.opposite = data.opposite;
+      this.feeling.beliefs = data.beliefs;
       this.type = 2;
     }
   }
@@ -57,6 +58,7 @@ export class AdminFeelingsDialogComponent implements OnInit {
       this.data.description = this.feeling.description;
       this.data.relatedFeelings = this.feeling.relatedFeelings;
       this.data.oppositeFeelings = this.feeling.oppositeFeelings;
+      this.data.beliefs = this.feeling.beliefs;
       this.feelingService.updateFeeling(this.data);
     }
     // Clean up.

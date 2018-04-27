@@ -4,6 +4,7 @@ export class Feeling {
     description: string;
     related: string[];
     opposite: string[];
+    beliefs: string;
 
     relatedFeelings: Feeling[];
     oppositeFeelings: Feeling[];

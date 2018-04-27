@@ -12,7 +12,8 @@ export class FeelingService {
       name: feeling.name, 
       description: feeling.description, 
       related: feeling.relatedFeelings.map(r => r.id),
-      opposite: feeling.oppositeFeelings.map(o => o.id)
+      opposite: feeling.oppositeFeelings.map(o => o.id),
+      beliefs: feeling.beliefs
     });      
   }
 
@@ -21,7 +22,8 @@ export class FeelingService {
       name: feeling.name,
       description: feeling.description,
       related: feeling.relatedFeelings.map(r => r.id),
-      opposite: feeling.oppositeFeelings.map(o => o.id)
+      opposite: feeling.oppositeFeelings.map(o => o.id),
+      beliefs: feeling.beliefs
     });      
   }
 
