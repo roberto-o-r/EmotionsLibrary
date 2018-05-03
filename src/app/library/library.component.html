@@ -14,7 +14,7 @@
         <div class="col s12 m12 l12">
           <div class="row">
             <!-- Cards loop. -->
-            <div class="col s12 m4 l4" *ngFor="let feeling of feelings;">
+            <div id="{{ feeling.id }}" class="col s12 m4 l4" *ngFor="let feeling of feelings;">
               <div class="card sticky-action">
                 <div class="card-image waves-effect waves-block waves-light">
                   <img class="activator" src="/assets/images/gallary/24.png">
@@ -41,11 +41,11 @@
                   <p class="pre">{{ feeling.description }}</p>                  
                   <strong>Related Feelings:</strong>
                   <p>
-                    <a [routerLink]="" *ngFor="let related of feeling.relatedFeelings; let isLast = last;">{{ related.name }}<span *ngIf="!isLast">, </span></a>                   
+                    <a [routerLink]="" [ngx-scroll-to]="'#' + related.id" target="_self" *ngFor="let related of feeling.relatedFeelings; let isLast = last;">{{ related.name }}<span *ngIf="!isLast">, </span></a>                   
                   </p>
                   <strong>Opposite Feelings:</strong>
                   <p>
-                    <a [routerLink]="" *ngFor="let opposite of feeling.oppositeFeelings; let isLast = last;">{{ opposite.name }}<span *ngIf="!isLast">, </span></a>                   
+                    <a [routerLink]="" [ngx-scroll-to]="'#' + opposite.id" target="_self" *ngFor="let opposite of feeling.oppositeFeelings; let isLast = last;">{{ opposite.name }}<span *ngIf="!isLast">, </span></a>                   
                   </p>
                 </div>
               </div>

@@ -8,6 +8,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -125,7 +126,8 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    ScrollToModule.forRoot()
   ],
   providers: [FeelingService, SessionService],
   bootstrap: [AppComponent]

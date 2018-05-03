@@ -16,7 +16,7 @@ import swal from 'sweetalert2'
 export class AdminFeelingsDialogComponent implements OnInit {
 
   type = 1; // 1 New, 2 Edit.  
-  feeling: Feeling = { id: "", name: "", description: "", related: [], opposite: [], relatedFeelings: [], oppositeFeelings: [], beliefs: "" };
+  feeling: Feeling = { id: "", name: "", description: "", related: [], opposite: [], relatedFeelings: [], oppositeFeelings: [], beliefs: ""};
   feelings;
   filteredFeelingsRelated: Feeling[];
   filteredFeelingsOpposite: Feeling[];

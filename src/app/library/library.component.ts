@@ -9,6 +9,7 @@ import { FeelingService } from '../shared/services/feeling.service';
 export class LibraryComponent implements OnInit {
 
   feelings;
+  activeId = 0;
 
   constructor(private feelingService: FeelingService) { }
 
